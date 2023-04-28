@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wordpress_db
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: linuxserver/mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./db:/var/lib/mysql
+
+volumes:
+  wordpress:
+  db:
