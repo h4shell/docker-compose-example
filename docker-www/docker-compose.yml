@@ -1,0 +1,9 @@
+version: "3"
+
+h4sh-webserver:
+  image: nginx
+  restart: always
+  volumes:
+    - ./www:/usr/share/nginx/html
+  ports:
+    - 55555:80
