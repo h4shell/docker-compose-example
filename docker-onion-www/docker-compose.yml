@@ -1,0 +1,15 @@
+version: '3'
+services:
+  tor-service:
+    build: .
+    environment:
+    - HIDDEN_SERVICE_HOST=hidden-service
+    - HIDDEN_SERVICE_PORT=80
+    depends_on:
+    - hidden-service
+    volumes:
+      - "./tor:/var/lib/tor"
+  hidden-service:
+    image: nginx:latest
+    volumes:
+      - ./www:/usr/share/nginx/html
