@@ -1,0 +1,11 @@
+version: "3.1"
+
+services:
+  mkp224o:
+    image: marvambass/mkp224o
+    restart: always
+    volumes:
+      - ./result:/result
+    command: "mkp224o -d result test"
+volumes:
+  result:
