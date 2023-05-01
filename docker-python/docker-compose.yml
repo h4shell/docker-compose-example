@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  myscript:
+    image: python:latest
+    volumes:
+      - "$PWD/app:/usr/src/app"
+    command: sh -c "pip install --upgrade pip && pip install -r /usr/src/app/requirements.txt && python /usr/src/app/app.py"
