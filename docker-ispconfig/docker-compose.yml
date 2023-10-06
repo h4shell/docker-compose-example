@@ -28,8 +28,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ./web_config:/usr/local/ispconfig
-      - ./web_data:/var/www
+      - web_config:/usr/local/ispconfig
+      - web_data:/var/www
 
 volumes:
   db_data:
