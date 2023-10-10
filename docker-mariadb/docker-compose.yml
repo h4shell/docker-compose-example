@@ -1,15 +1,15 @@
-version: '3'
-volumes:
-  data:
+version: '3.1'
+
 services:
-  db:
+  mariadb:
     image: mariadb
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: user
+      MYSQL_DATABASE: database
+      MYSQL_USER: h4shell
       MYSQL_PASSWORD: password
-    volumes:
-      - data:/var/lib/mysql
     ports:
       - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
