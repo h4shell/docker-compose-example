@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  postfix:
+    image: juanluisbaptiste/postfix
+    container_name: postfix
+    ports:
+      - "25:25"
+    environment:
+      - SMTP_SERVER=smtp.bar.com
+      - SMTP_USERNAME=foo@bar.com
+      - SMTP_PASSWORD=password
+      - SERVER_HOSTNAME=bar.com
+
+    #volumes:
+    # If using SMTP_PASSWORD_FILE, mount the file containing the password
+    # - ./secrets/smtp_password:/secrets/smtp_password
+    # Uncomment the following line if you want to see verbose output for debugging
+    # environment:
+    #   - DEBUG=yes
+    # Uncomment the following line if you want to use the provided docker-compose file
+    # command: ["postfix", "-e", "SMTP_SERVER=smtp.bar.com", "-e", "SMTP_USERNAME=foo@bar.com", "-e", "SMTP_PASSWORD=XXXXXXXX", "-e", "SERVER_HOSTNAME=helpdesk.mycompany.com"]
